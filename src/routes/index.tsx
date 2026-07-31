@@ -215,20 +215,26 @@ function Index() {
                 Stay ahead of emerging threats with expert analysis.
               </p>
             </div>
-            <a href="#blog" className="text-sm font-semibold text-primary">
+            <Link to="/blog" className="text-sm font-semibold text-primary">
               View all posts →
-            </a>
+            </Link>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {posts.map((p) => (
-              <article
-                key={p.title}
+              <Link
+                key={p.slug}
+                to="/blog/$slug"
+                params={{ slug: p.slug }}
                 className="rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-primary/50"
               >
-                <p className="label-mono text-muted-foreground">{p.date}</p>
+                <p className="label-mono text-muted-foreground">
+                  {p.date} · {cleanReadTime(p.readTime)}
+                </p>
                 <h3 className="mt-3 text-lg font-semibold leading-snug">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-              </article>
+                <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-muted-foreground">
+                  {p.description}
+                </p>
+              </Link>
             ))}
           </div>
         </div>
