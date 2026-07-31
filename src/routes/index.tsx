@@ -240,46 +240,7 @@ function Index() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="contact" className="grid-backdrop border-t border-border/60">
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">Don't Wait for a Breach</h2>
-          <p className="mt-5 text-muted-foreground">
-            Get your free security assessment today. No commitment. No sales pressure. Just
-            actionable insights to protect your business.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:info@secureme247.com"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
-            >
-              Get Free Security Assessment <ArrowRight className="size-4" />
-            </a>
-            <a
-              href="tel:+17035550147"
-              className="inline-flex items-center rounded-lg border border-border bg-surface px-7 py-4 font-semibold transition-colors hover:border-primary/50"
-            >
-              Talk to an Analyst
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <footer className="border-t border-border/60 bg-surface/60">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-10">
-          <div className="flex items-center gap-3">
-            <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <ShieldCheck className="size-4" />
-            </span>
-            <span className="text-sm font-semibold">
-              Secure<span className="text-primary">Me</span>247 · Reston, VA
-            </span>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SecureMe247. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <CtaSection />
     </div>
   );
 }
