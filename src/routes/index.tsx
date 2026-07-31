@@ -79,29 +79,11 @@ const why = [
   },
 ];
 
-const posts = [
-  {
-    date: "June 16, 2026",
-    title: "Trusted IT Partners in Northern Virginia: Our Sister Companies",
-    body: "SecureMe247 partners with UX Genius for managed IT services and IT Service Dental for specialized dental IT support.",
-  },
-  {
-    date: "June 15, 2026",
-    title: "Computer Support Fairfax VA: Complete Guide for Local Businesses",
-    body: "A complete guide to computer support for Fairfax small businesses — PC repairs, network support, and choosing a provider.",
-  },
-  {
-    date: "June 15, 2026",
-    title: "IT Support Fairfax VA: Complete Guide for Local Businesses in 2026",
-    body: "What to look for in a local provider, common IT challenges, and how to budget for support in 2026.",
-  },
-];
+const posts = blogPosts.slice(0, 3);
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
-      <Nav />
-
+    <div className="bg-background">
       {/* Hero */}
       <section className="grid-backdrop relative overflow-hidden border-b border-border/60">
         <div className="pointer-events-none absolute left-1/2 top-0 size-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />
@@ -121,18 +103,18 @@ function Index() {
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
               Get Free Security Assessment <ArrowRight className="size-4" />
-            </a>
-            <a
-              href="#services"
+            </Link>
+            <Link
+              to="/services"
               className="inline-flex items-center rounded-lg border border-border bg-surface px-7 py-4 font-semibold transition-colors hover:border-primary/50"
             >
               View Services
-            </a>
+            </Link>
           </div>
 
           <dl className="mt-16 grid grid-cols-2 gap-y-8 sm:grid-cols-4 sm:divide-x sm:divide-border">
