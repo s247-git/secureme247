@@ -42,26 +42,58 @@ export function Footer() {
 
         <FooterCol title="Services">
           {services.map((s) => (
-            <FooterLink key={s.slug} to="/services/$slug" params={{ slug: s.slug }}>
-              {s.title}
-            </FooterLink>
+            <li key={s.slug}>
+              <Link
+                to="/services/$slug"
+                params={{ slug: s.slug }}
+                className="text-muted-foreground transition-colors hover:text-primary"
+              >
+                {s.title}
+              </Link>
+            </li>
           ))}
         </FooterCol>
 
         <FooterCol title="Industries">
           {industries.slice(0, 8).map((i) => (
-            <FooterLink key={i.slug} to="/industries/$slug" params={{ slug: i.slug }}>
-              {i.title}
-            </FooterLink>
+            <li key={i.slug}>
+              <Link
+                to="/industries/$slug"
+                params={{ slug: i.slug }}
+                className="text-muted-foreground transition-colors hover:text-primary"
+              >
+                {i.title}
+              </Link>
+            </li>
           ))}
         </FooterCol>
 
         <FooterCol title="Company">
-          <FooterLink to="/about">About</FooterLink>
-          <FooterLink to="/blog">Blog</FooterLink>
-          <FooterLink to="/compliance">Compliance</FooterLink>
-          <FooterLink to="/locations">Locations</FooterLink>
-          <FooterLink to="/contact">Contact</FooterLink>
+          <li>
+            <Link to="/about" className="text-muted-foreground hover:text-primary">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/blog" className="text-muted-foreground hover:text-primary">
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link to="/compliance" className="text-muted-foreground hover:text-primary">
+              Compliance
+            </Link>
+          </li>
+          <li>
+            <Link to="/locations" className="text-muted-foreground hover:text-primary">
+              Locations
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="text-muted-foreground hover:text-primary">
+              Contact
+            </Link>
+          </li>
         </FooterCol>
       </div>
 
@@ -81,13 +113,5 @@ function FooterCol({ title, children }: { title: string; children: React.ReactNo
       <p className="label-mono text-muted-foreground">{title}</p>
       <ul className="mt-4 space-y-2 text-sm">{children}</ul>
     </div>
-  );
-}
-
-function FooterLink(props: React.ComponentProps<typeof Link>) {
-  return (
-    <li>
-      <Link {...props} className="text-muted-foreground transition-colors hover:text-primary" />
-    </li>
   );
 }
