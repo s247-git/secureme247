@@ -154,24 +154,32 @@ function Index() {
         </p>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <article
-              key={s.title}
-              className="group rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-primary/50"
-            >
-              <div className="flex items-center justify-between">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <s.Icon className="size-5" />
+          {serviceData.map((s) => {
+            const Icon = serviceIcons[s.slug] ?? ShieldCheck;
+            return (
+              <Link
+                key={s.slug}
+                to="/services/$slug"
+                params={{ slug: s.slug }}
+                className="group rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-primary/50"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Icon className="size-5" />
+                  </span>
+                  <span className="font-mono text-xs text-primary">{s.eyebrow}</span>
+                </div>
+                <h3 className="mt-6 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-muted-foreground">
+                  {s.description}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+                  Learn more{" "}
+                  <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
-                <span className="font-mono text-xs text-primary">{s.tag}</span>
-              </div>
-              <h3 className="mt-6 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                Learn more <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
-              </span>
-            </article>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
