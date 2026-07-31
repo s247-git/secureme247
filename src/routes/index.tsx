@@ -16,6 +16,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import { SocConsole } from "@/components/site/SocConsole";
+import { CtaSection } from "@/components/site/CtaSection";
 import { services as serviceData } from "@/data/services";
 import { blogPosts } from "@/data/blogPosts";
 import { cleanReadTime } from "@/lib/blogContent";
