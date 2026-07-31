@@ -17,6 +17,7 @@ import { Route as ComplianceSlugRouteImport } from './routes/compliance.$slug'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
+import { Route as LocationsStateRouteImport } from './routes/locations.$state'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
@@ -60,6 +61,11 @@ const LocationsIndexRoute = LocationsIndexRouteImport.update({
   path: '/locations/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsStateRoute = LocationsStateRouteImport.update({
+  id: '/locations/$state',
+  path: '/locations/$state',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/services/',
   path: '/services/',
@@ -76,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/compliance/$slug': typeof ComplianceSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
+  '/locations/$state': typeof LocationsStateRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/compliance/': typeof ComplianceIndexRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/compliance/$slug': typeof ComplianceSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
+  '/locations/$state': typeof LocationsStateRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/blog': typeof BlogIndexRoute
   '/compliance': typeof ComplianceIndexRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/compliance/$slug': typeof ComplianceSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
+  '/locations/$state': typeof LocationsStateRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/compliance/': typeof ComplianceIndexRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/compliance/$slug'
     | '/industries/$slug'
+    | '/locations/$state'
     | '/services/$slug'
     | '/blog/'
     | '/compliance/'
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/compliance/$slug'
     | '/industries/$slug'
+    | '/locations/$state'
     | '/services/$slug'
     | '/blog'
     | '/compliance'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/compliance/$slug'
     | '/industries/$slug'
+    | '/locations/$state'
     | '/services/$slug'
     | '/blog/'
     | '/compliance/'
@@ -152,6 +164,7 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   ComplianceSlugRoute: typeof ComplianceSlugRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
+  LocationsStateRoute: typeof LocationsStateRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ComplianceIndexRoute: typeof ComplianceIndexRoute
@@ -218,6 +231,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/$state': {
+      id: '/locations/$state'
+      path: '/locations/$state'
+      fullPath: '/locations/$state'
+      preLoaderRoute: typeof LocationsStateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/': {
       id: '/services/'
       path: '/services'
@@ -240,6 +260,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
   ComplianceSlugRoute: ComplianceSlugRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
+  LocationsStateRoute: LocationsStateRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   ComplianceIndexRoute: ComplianceIndexRoute,
