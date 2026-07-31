@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
-import { states, cities } from "@/data/locations";
+import { states, cities, type City } from "@/data/locations";
 
 export const Route = createFileRoute("/locations/$state")({
   loader: ({ params }) => {
@@ -41,7 +41,7 @@ function StatePage() {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <h2 className="text-2xl font-bold tracking-tight">Cities we serve in {state.name}</h2>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {list.map((c) => (
+          {list.map((c: City) => (
             <Link
               key={c.slug}
               to="/cybersecurity/$city"
