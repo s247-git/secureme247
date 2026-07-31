@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ShieldCheck,
   ArrowRight,
@@ -15,8 +15,10 @@ import {
   BrainCircuit,
   BadgeCheck,
 } from "lucide-react";
-import { Nav } from "@/components/site/Nav";
 import { SocConsole } from "@/components/site/SocConsole";
+import { services as serviceData } from "@/data/services";
+import { blogPosts } from "@/data/blogPosts";
+import { cleanReadTime } from "@/lib/blogContent";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,62 +49,17 @@ const heroStats = [
 
 const frameworks = ["SOC 2", "HIPAA", "PCI DSS", "NIST CSF", "ISO 27001", "CMMC", "GDPR"];
 
-const services = [
-  {
-    Icon: Radar,
-    tag: "24/7",
-    title: "Managed Detection & Response",
-    body: "24/7 threat monitoring, detection, and automated response powered by advanced SIEM and SOAR platforms. Our security operations center never sleeps.",
-  },
-  {
-    Icon: Laptop,
-    tag: "<30min",
-    title: "Endpoint Protection",
-    body: "Next-gen endpoint protection with AI-powered threat prevention, behavioral analysis, and zero-day exploit protection for every device in your fleet.",
-  },
-  {
-    Icon: Network,
-    tag: "<30min",
-    title: "Network Security",
-    body: "Enterprise-grade firewall management, intrusion detection, and network segmentation. We architect and monitor your network perimeter.",
-  },
-  {
-    Icon: Headphones,
-    tag: "<30min",
-    title: "IT Support & Help Desk",
-    body: "Professional help desk and on-site IT support for your team, from user onboarding to troubleshooting, keeping your operations running smoothly.",
-  },
-  {
-    Icon: Cloud,
-    tag: "<30min",
-    title: "Cloud Security",
-    body: "Secure your AWS, Azure, and GCP environments with CSPM, workload protection, and identity governance from a single pane of glass.",
-  },
-  {
-    Icon: DatabaseBackup,
-    tag: "<4hr",
-    title: "Backup & Disaster Recovery",
-    body: "Automated backups, immutable storage, and recovery planning that ensure your business survives ransomware, hardware failure, or disaster.",
-  },
-  {
-    Icon: FileCheck,
-    tag: "24/7",
-    title: "Compliance & GRC",
-    body: "Navigate regulatory complexity with expert compliance management. We map your controls, close gaps, and maintain continuous compliance.",
-  },
-  {
-    Icon: Bug,
-    tag: "200+",
-    title: "Penetration Testing",
-    body: "Offensive security assessments that find vulnerabilities before attackers do, testing your defenses with real-world attack scenarios.",
-  },
-  {
-    Icon: UserCog,
-    tag: "100%",
-    title: "Virtual CISO (vCISO)",
-    body: "Fractional executive security leadership without the cost of a full-time CISO. Strategy, compliance, and board-level reporting.",
-  },
-];
+const serviceIcons: Record<string, React.ElementType> = {
+  mdr: Radar,
+  endpoint: Laptop,
+  network: Network,
+  "it-support": Headphones,
+  cloud: Cloud,
+  "backup-dr": DatabaseBackup,
+  compliance: FileCheck,
+  "penetration-testing": Bug,
+  vciso: UserCog,
+};
 
 const why = [
   {
