@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ShieldCheck,
   ArrowRight,
@@ -15,8 +15,11 @@ import {
   BrainCircuit,
   BadgeCheck,
 } from "lucide-react";
-import { Nav } from "@/components/site/Nav";
 import { SocConsole } from "@/components/site/SocConsole";
+import { CtaSection } from "@/components/site/CtaSection";
+import { services as serviceData } from "@/data/services";
+import { blogPosts } from "@/data/blogPosts";
+import { cleanReadTime } from "@/lib/blogContent";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,62 +50,17 @@ const heroStats = [
 
 const frameworks = ["SOC 2", "HIPAA", "PCI DSS", "NIST CSF", "ISO 27001", "CMMC", "GDPR"];
 
-const services = [
-  {
-    Icon: Radar,
-    tag: "24/7",
-    title: "Managed Detection & Response",
-    body: "24/7 threat monitoring, detection, and automated response powered by advanced SIEM and SOAR platforms. Our security operations center never sleeps.",
-  },
-  {
-    Icon: Laptop,
-    tag: "<30min",
-    title: "Endpoint Protection",
-    body: "Next-gen endpoint protection with AI-powered threat prevention, behavioral analysis, and zero-day exploit protection for every device in your fleet.",
-  },
-  {
-    Icon: Network,
-    tag: "<30min",
-    title: "Network Security",
-    body: "Enterprise-grade firewall management, intrusion detection, and network segmentation. We architect and monitor your network perimeter.",
-  },
-  {
-    Icon: Headphones,
-    tag: "<30min",
-    title: "IT Support & Help Desk",
-    body: "Professional help desk and on-site IT support for your team, from user onboarding to troubleshooting, keeping your operations running smoothly.",
-  },
-  {
-    Icon: Cloud,
-    tag: "<30min",
-    title: "Cloud Security",
-    body: "Secure your AWS, Azure, and GCP environments with CSPM, workload protection, and identity governance from a single pane of glass.",
-  },
-  {
-    Icon: DatabaseBackup,
-    tag: "<4hr",
-    title: "Backup & Disaster Recovery",
-    body: "Automated backups, immutable storage, and recovery planning that ensure your business survives ransomware, hardware failure, or disaster.",
-  },
-  {
-    Icon: FileCheck,
-    tag: "24/7",
-    title: "Compliance & GRC",
-    body: "Navigate regulatory complexity with expert compliance management. We map your controls, close gaps, and maintain continuous compliance.",
-  },
-  {
-    Icon: Bug,
-    tag: "200+",
-    title: "Penetration Testing",
-    body: "Offensive security assessments that find vulnerabilities before attackers do, testing your defenses with real-world attack scenarios.",
-  },
-  {
-    Icon: UserCog,
-    tag: "100%",
-    title: "Virtual CISO (vCISO)",
-    body: "Fractional executive security leadership without the cost of a full-time CISO. Strategy, compliance, and board-level reporting.",
-  },
-];
+const serviceIcons: Record<string, React.ElementType> = {
+  mdr: Radar,
+  endpoint: Laptop,
+  network: Network,
+  "it-support": Headphones,
+  cloud: Cloud,
+  "backup-dr": DatabaseBackup,
+  compliance: FileCheck,
+  "penetration-testing": Bug,
+  vciso: UserCog,
+};
 
 const why = [
   {
@@ -122,29 +80,11 @@ const why = [
   },
 ];
 
-const posts = [
-  {
-    date: "June 16, 2026",
-    title: "Trusted IT Partners in Northern Virginia: Our Sister Companies",
-    body: "SecureMe247 partners with UX Genius for managed IT services and IT Service Dental for specialized dental IT support.",
-  },
-  {
-    date: "June 15, 2026",
-    title: "Computer Support Fairfax VA: Complete Guide for Local Businesses",
-    body: "A complete guide to computer support for Fairfax small businesses — PC repairs, network support, and choosing a provider.",
-  },
-  {
-    date: "June 15, 2026",
-    title: "IT Support Fairfax VA: Complete Guide for Local Businesses in 2026",
-    body: "What to look for in a local provider, common IT challenges, and how to budget for support in 2026.",
-  },
-];
+const posts = blogPosts.slice(0, 3);
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
-      <Nav />
-
+    <div className="bg-background">
       {/* Hero */}
       <section className="grid-backdrop relative overflow-hidden border-b border-border/60">
         <div className="pointer-events-none absolute left-1/2 top-0 size-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />
@@ -164,18 +104,18 @@ function Index() {
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
               Get Free Security Assessment <ArrowRight className="size-4" />
-            </a>
-            <a
-              href="#services"
+            </Link>
+            <Link
+              to="/services"
               className="inline-flex items-center rounded-lg border border-border bg-surface px-7 py-4 font-semibold transition-colors hover:border-primary/50"
             >
               View Services
-            </a>
+            </Link>
           </div>
 
           <dl className="mt-16 grid grid-cols-2 gap-y-8 sm:grid-cols-4 sm:divide-x sm:divide-border">
@@ -215,24 +155,32 @@ function Index() {
         </p>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <article
-              key={s.title}
-              className="group rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-primary/50"
-            >
-              <div className="flex items-center justify-between">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <s.Icon className="size-5" />
+          {serviceData.map((s) => {
+            const Icon = serviceIcons[s.slug] ?? ShieldCheck;
+            return (
+              <Link
+                key={s.slug}
+                to="/services/$slug"
+                params={{ slug: s.slug }}
+                className="group rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-primary/50"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Icon className="size-5" />
+                  </span>
+                  <span className="font-mono text-xs text-primary">{s.eyebrow}</span>
+                </div>
+                <h3 className="mt-6 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-muted-foreground">
+                  {s.description}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+                  Learn more{" "}
+                  <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
-                <span className="font-mono text-xs text-primary">{s.tag}</span>
-              </div>
-              <h3 className="mt-6 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                Learn more <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
-              </span>
-            </article>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -268,65 +216,32 @@ function Index() {
                 Stay ahead of emerging threats with expert analysis.
               </p>
             </div>
-            <a href="#blog" className="text-sm font-semibold text-primary">
+            <Link to="/blog" className="text-sm font-semibold text-primary">
               View all posts →
-            </a>
+            </Link>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {posts.map((p) => (
-              <article
-                key={p.title}
+              <Link
+                key={p.slug}
+                to="/blog/$slug"
+                params={{ slug: p.slug }}
                 className="rounded-2xl border border-border bg-surface p-7 transition-colors hover:border-primary/50"
               >
-                <p className="label-mono text-muted-foreground">{p.date}</p>
+                <p className="label-mono text-muted-foreground">
+                  {p.date} · {cleanReadTime(p.readTime)}
+                </p>
                 <h3 className="mt-3 text-lg font-semibold leading-snug">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-              </article>
+                <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-muted-foreground">
+                  {p.description}
+                </p>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="contact" className="grid-backdrop border-t border-border/60">
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">Don't Wait for a Breach</h2>
-          <p className="mt-5 text-muted-foreground">
-            Get your free security assessment today. No commitment. No sales pressure. Just
-            actionable insights to protect your business.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:info@secureme247.com"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
-            >
-              Get Free Security Assessment <ArrowRight className="size-4" />
-            </a>
-            <a
-              href="tel:+17035550147"
-              className="inline-flex items-center rounded-lg border border-border bg-surface px-7 py-4 font-semibold transition-colors hover:border-primary/50"
-            >
-              Talk to an Analyst
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <footer className="border-t border-border/60 bg-surface/60">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-10">
-          <div className="flex items-center gap-3">
-            <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <ShieldCheck className="size-4" />
-            </span>
-            <span className="text-sm font-semibold">
-              Secure<span className="text-primary">Me</span>247 · Reston, VA
-            </span>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SecureMe247. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <CtaSection />
     </div>
   );
 }
