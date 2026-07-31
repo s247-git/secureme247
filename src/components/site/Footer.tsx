@@ -1,0 +1,93 @@
+import { Link } from "@tanstack/react-router";
+import { ShieldCheck, Phone, Mail, MapPin } from "lucide-react";
+import { services } from "@/data/services";
+import { industries } from "@/data/industries";
+
+export function Footer() {
+  return (
+    <footer className="border-t border-border/60 bg-surface/60">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4">
+        <div>
+          <div className="flex items-center gap-3">
+            <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+              <ShieldCheck className="size-4" />
+            </span>
+            <span className="font-bold">
+              Secure<span className="text-primary">Me</span>247
+            </span>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Enterprise-grade managed security and IT services. 24/7/365 SOC coverage for 500+
+            businesses nationwide.
+          </p>
+          <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+            <li className="flex items-center gap-2">
+              <Phone className="size-4 text-primary" />
+              <a href="tel:+17037550014" className="hover:text-primary">
+                (703) 755-0014
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="size-4 text-primary" />
+              <a href="mailto:info@secureme247.com" className="hover:text-primary">
+                info@secureme247.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <MapPin className="size-4 text-primary" />
+              11890 Sunrise Valley Dr, Reston, VA
+            </li>
+          </ul>
+        </div>
+
+        <FooterCol title="Services">
+          {services.map((s) => (
+            <FooterLink key={s.slug} to="/services/$slug" params={{ slug: s.slug }}>
+              {s.title}
+            </FooterLink>
+          ))}
+        </FooterCol>
+
+        <FooterCol title="Industries">
+          {industries.slice(0, 8).map((i) => (
+            <FooterLink key={i.slug} to="/industries/$slug" params={{ slug: i.slug }}>
+              {i.title}
+            </FooterLink>
+          ))}
+        </FooterCol>
+
+        <FooterCol title="Company">
+          <FooterLink to="/about">About</FooterLink>
+          <FooterLink to="/blog">Blog</FooterLink>
+          <FooterLink to="/compliance">Compliance</FooterLink>
+          <FooterLink to="/locations">Locations</FooterLink>
+          <FooterLink to="/contact">Contact</FooterLink>
+        </FooterCol>
+      </div>
+
+      <div className="border-t border-border/60">
+        <div className="mx-auto max-w-7xl px-6 py-6 text-sm text-muted-foreground">
+          © {new Date().getFullYear()} SecureMe247. All rights reserved. · MSP &amp; MSSP based in
+          Reston, Virginia.
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <p className="label-mono text-muted-foreground">{title}</p>
+      <ul className="mt-4 space-y-2 text-sm">{children}</ul>
+    </div>
+  );
+}
+
+function FooterLink(props: React.ComponentProps<typeof Link>) {
+  return (
+    <li>
+      <Link {...props} className="text-muted-foreground transition-colors hover:text-primary" />
+    </li>
+  );
+}
