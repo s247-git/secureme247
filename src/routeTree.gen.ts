@@ -14,6 +14,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ComplianceIndexRouteImport } from './routes/compliance.index'
 import { Route as ComplianceSlugRouteImport } from './routes/compliance.$slug'
+import { Route as CybersecurityCityRouteImport } from './routes/cybersecurity.$city'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
@@ -44,6 +45,11 @@ const ComplianceIndexRoute = ComplianceIndexRouteImport.update({
 const ComplianceSlugRoute = ComplianceSlugRouteImport.update({
   id: '/compliance/$slug',
   path: '/compliance/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CybersecurityCityRoute = CybersecurityCityRouteImport.update({
+  id: '/cybersecurity/$city',
+  path: '/cybersecurity/$city',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/compliance/$slug': typeof ComplianceSlugRoute
+  '/cybersecurity/$city': typeof CybersecurityCityRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/locations/$state': typeof LocationsStateRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/compliance/$slug': typeof ComplianceSlugRoute
+  '/cybersecurity/$city': typeof CybersecurityCityRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/locations/$state': typeof LocationsStateRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/compliance/$slug': typeof ComplianceSlugRoute
+  '/cybersecurity/$city': typeof CybersecurityCityRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/locations/$state': typeof LocationsStateRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/'
     | '/blog/$slug'
     | '/compliance/$slug'
+    | '/cybersecurity/$city'
     | '/industries/$slug'
     | '/locations/$state'
     | '/services/$slug'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/'
     | '/blog/$slug'
     | '/compliance/$slug'
+    | '/cybersecurity/$city'
     | '/industries/$slug'
     | '/locations/$state'
     | '/services/$slug'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/'
     | '/blog/$slug'
     | '/compliance/$slug'
+    | '/cybersecurity/$city'
     | '/industries/$slug'
     | '/locations/$state'
     | '/services/$slug'
@@ -163,6 +175,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogSlugRoute: typeof BlogSlugRoute
   ComplianceSlugRoute: typeof ComplianceSlugRoute
+  CybersecurityCityRoute: typeof CybersecurityCityRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
   LocationsStateRoute: typeof LocationsStateRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -208,6 +221,13 @@ declare module '@tanstack/react-router' {
       path: '/compliance/$slug'
       fullPath: '/compliance/$slug'
       preLoaderRoute: typeof ComplianceSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cybersecurity/$city': {
+      id: '/cybersecurity/$city'
+      path: '/cybersecurity/$city'
+      fullPath: '/cybersecurity/$city'
+      preLoaderRoute: typeof CybersecurityCityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries/': {
@@ -259,6 +279,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogSlugRoute: BlogSlugRoute,
   ComplianceSlugRoute: ComplianceSlugRoute,
+  CybersecurityCityRoute: CybersecurityCityRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
   LocationsStateRoute: LocationsStateRoute,
   ServicesSlugRoute: ServicesSlugRoute,
