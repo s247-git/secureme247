@@ -77,16 +77,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "SecureMe247 | MSP & MSSP Cyber Defense" },
+      {
+        name: "description",
+        content:
+          "24/7/365 managed security services protecting 500+ businesses. SOC monitoring, MDR, compliance and IT support from Reston, VA.",
+      },
+      { name: "author", content: "SecureMe247" },
+      { property: "og:title", content: "SecureMe247 | MSP & MSSP Cyber Defense" },
+      {
+        property: "og:description",
+        content:
+          "Enterprise-grade cyber defense without enterprise complexity. 24/7 SOC, MDR, compliance and IT support.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
