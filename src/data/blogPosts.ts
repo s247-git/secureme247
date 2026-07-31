@@ -7,7 +7,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Threat Intelligence",
     "readTime": "202611 min read",
-    "image": "https://www.secureme247.com/images/blog/ai-powered-cyber-threats-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/0a746e4c-13a0-4bc0-bf83-a07c7444da0e/ai-powered-cyber-threats-2026.jpg"
   },
   {
     "slug": "business-continuity-planning-2026",
@@ -16,7 +16,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Business Continuity",
     "readTime": "202611 min read",
-    "image": "https://www.secureme247.com/images/blog/business-continuity-planning-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/253a32a4-8a81-4a05-a138-6c82d5acc4c9/business-continuity-planning-2026.jpg"
   },
   {
     "slug": "business-email-compromise-guide-2026",
@@ -25,7 +25,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Threat Intelligence",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/business-email-compromise-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/7d70f722-bc59-499a-bd6d-74dadbf5d13f/business-email-compromise-guide-2026.jpg"
   },
   {
     "slug": "cloud-security-best-practices-2026",
@@ -34,7 +34,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Cloud Security",
     "readTime": "20269 min read",
-    "image": "https://www.secureme247.com/images/blog/cloud-security-best-practices-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/41480bca-c999-477a-9c13-53f5007fe9aa/cloud-security-best-practices-2026.jpg"
   },
   {
     "slug": "cmmc-compliance-guide-2026",
@@ -43,7 +43,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Compliance",
     "readTime": "202614 min read",
-    "image": "https://www.secureme247.com/images/blog/cmmc-compliance-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/1a451160-1544-4b2f-a244-d3def6113173/cmmc-compliance-guide-2026.jpg"
   },
   {
     "slug": "computer-support-reston-va-2026",
@@ -52,7 +52,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "IT Support",
     "readTime": "20269 min read",
-    "image": "https://www.secureme247.com/images/blog/computer-support-reston-va-2026.png?v=1"
+    "image": "/__l5e/assets-v1/ed162627-fdc9-41b9-a604-9d10284d2a1e/computer-support-reston-va-2026.png"
   },
   {
     "slug": "cyber-insurance-guide-2026",
@@ -61,7 +61,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Business Continuity",
     "readTime": "202611 min read",
-    "image": "https://www.secureme247.com/images/blog/cyber-insurance-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/ccad08ad-ef30-40cb-b218-e7f076d580dd/cyber-insurance-guide-2026.jpg"
   },
   {
     "slug": "cybersecurity-awareness-training",
@@ -70,7 +70,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed Security",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/cybersecurity-awareness-training.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/4d49c2af-21bb-4752-8482-64cab4df040a/cybersecurity-awareness-training.jpg"
   },
   {
     "slug": "cybersecurity-company-reston-va",
@@ -79,7 +79,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Cybersecurity",
     "readTime": "202611 min read",
-    "image": "https://www.secureme247.com/images/blog/cybersecurity-company-reston-va.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/392eca8e-64d3-4e98-a6e2-28a280528bda/cybersecurity-company-reston-va.jpg"
   },
   {
     "slug": "cybersecurity-real-estate-property-management-2026",
@@ -88,7 +88,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Compliance",
     "readTime": "202611 min read",
-    "image": "https://www.secureme247.com/images/blog/cybersecurity-real-estate-property-management-2026.png?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/25710d93-4b5d-453c-afea-1c13372f2bba/cybersecurity-real-estate-property-management-2026.png"
   },
   {
     "slug": "dark-web-monitoring-explained",
@@ -97,7 +97,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Threat Intelligence",
     "readTime": "20269 min read",
-    "image": "https://www.secureme247.com/images/blog/dark-web-monitoring-explained.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/2bf3f12e-7e33-4be4-a152-4f45a46d002f/dark-web-monitoring-explained.jpg"
   },
   {
     "slug": "data-classification-insider-threat-prevention-2026",
@@ -106,7 +106,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Compliance",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/data-classification-insider-threat-prevention-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/dc16e4f3-9e5d-4fc0-ba6f-433571cdf309/data-classification-insider-threat-prevention-2026.jpg"
   },
   {
     "slug": "dental-practice-cybersecurity-2026",
@@ -115,7 +115,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Healthcare IT",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/dental-practice-cybersecurity-2026.png?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/1853410c-6b14-4945-a2b7-9415e4719230/dental-practice-cybersecurity-2026.png"
   },
   {
     "slug": "endpoint-security-best-practices",
@@ -124,7 +124,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Endpoint Security",
     "readTime": "20268 min read",
-    "image": "https://www.secureme247.com/images/blog/endpoint-security-best-practices.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/1e2cdece-497e-400e-9aca-d7510c795ae4/endpoint-security-best-practices.jpg"
   },
   {
     "slug": "help-desk-services-reston-va-2026",
@@ -133,7 +133,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "IT Support",
     "readTime": "20269 min read",
-    "image": "https://www.secureme247.com/images/blog/it-support-reston-va-guide.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/565cd421-0bbe-4b12-91e5-a203e1b06e4f/it-support-reston-va-guide.jpg"
   },
   {
     "slug": "hipaa-compliance-cybersecurity-guide",
@@ -142,7 +142,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Healthcare IT",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/hipaa-compliance-cybersecurity-guide.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/79fa80ae-36bb-4e6b-a691-e6d394dd7f01/hipaa-compliance-cybersecurity-guide.jpg"
   },
   {
     "slug": "identity-access-management-guide-2026",
@@ -151,7 +151,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Network Security",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/identity-access-management-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/68445703-a2aa-4c7a-b07a-236c2b82ce39/identity-access-management-guide-2026.jpg"
   },
   {
     "slug": "incident-response-plan",
@@ -160,7 +160,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Incident Response",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/incident-response-plan.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/5df82383-21b6-4bde-a141-ee77613f88bf/incident-response-plan.jpg"
   },
   {
     "slug": "it-consulting-reston-va",
@@ -169,7 +169,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "IT Consulting",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/it-consulting-reston-va.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/e4fcd86c-ce86-4c08-addf-6853fa864aff/it-consulting-reston-va.jpg"
   },
   {
     "slug": "it-support-mclean-va",
@@ -178,7 +178,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed IT",
     "readTime": "202612 min read",
-    "image": "https://www.secureme247.com/images/blog/it-support-mclean-va.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/bd96826d-38be-4fb4-a632-db71fcc0b085/it-support-mclean-va.jpg"
   },
   {
     "slug": "it-support-reston-va-guide",
@@ -187,7 +187,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed Security",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/it-support-reston-va-guide.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/565cd421-0bbe-4b12-91e5-a203e1b06e4f/it-support-reston-va-guide.jpg"
   },
   {
     "slug": "it-support-small-business-reston-va-2026",
@@ -196,7 +196,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed Security",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/it-support-reston-va-guide.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/565cd421-0bbe-4b12-91e5-a203e1b06e4f/it-support-reston-va-guide.jpg"
   },
   {
     "slug": "managed-detection-response-guide",
@@ -205,7 +205,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed Security",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/managed-detection-response-guide.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/6850e28b-b320-4ff1-a98d-ce3eab325282/managed-detection-response-guide.jpg"
   },
   {
     "slug": "managed-it-services-reston-va-2026",
@@ -214,7 +214,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed IT",
     "readTime": "202612 min read",
-    "image": "https://www.secureme247.com/images/blog/managed-it-services-reston-va-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/807c8c44-91db-499d-8b5f-da42ad8098a1/managed-it-services-reston-va-2026.jpg"
   },
   {
     "slug": "microsoft-365-security-hardening",
@@ -223,7 +223,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Cloud Security",
     "readTime": "202614 min read",
-    "image": "https://www.secureme247.com/images/blog/microsoft-365-security-hardening.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/c9ddd2fd-0e88-4b0c-b873-85dff65b1f31/microsoft-365-security-hardening.jpg"
   },
   {
     "slug": "msp-vs-inhouse-it-guide",
@@ -232,7 +232,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "IT Strategy",
     "readTime": "202614 min read",
-    "image": "https://www.secureme247.com/images/blog/msp-vs-inhouse-it-guide.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/0afa59a0-1e98-4de9-a5a5-1ded4363c5f1/msp-vs-inhouse-it-guide.jpg"
   },
   {
     "slug": "network-security-essentials",
@@ -241,7 +241,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Network Security",
     "readTime": "202613 min read",
-    "image": "https://www.secureme247.com/images/blog/network-security-essentials.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/9a1d598d-af3f-49d0-b31a-9d1296f7132d/network-security-essentials.jpg"
   },
   {
     "slug": "northern-virginia-it-support-guide-2026",
@@ -250,7 +250,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed Security",
     "readTime": "20268 min read",
-    "image": "https://www.secureme247.com/images/blog/northern-virginia-it-support-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/9be0f16f-e644-42c8-8c4e-3f5a5815b2a6/northern-virginia-it-support-guide-2026.jpg"
   },
   {
     "slug": "password-management-credential-hygiene-2026",
@@ -259,7 +259,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Endpoint Security",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/password-management-credential-hygiene-2026.png?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/f95e5869-db41-4a0a-a570-e5bd2730924b/password-management-credential-hygiene-2026.png"
   },
   {
     "slug": "penetration-testing-guide-2026",
@@ -268,7 +268,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Penetration Testing",
     "readTime": "202611 min read",
-    "image": "https://www.secureme247.com/images/blog/penetration-testing-guide-2026.png?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/437f2f1d-c81a-4e7e-93cb-69b4fb1ae937/penetration-testing-guide-2026.png"
   },
   {
     "slug": "ransomware-defense-guide",
@@ -277,7 +277,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed Security",
     "readTime": "202612 min read",
-    "image": "https://www.secureme247.com/images/blog/ransomware-defense-guide.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/6c646cf1-c154-4722-90c5-e4e856d5b8af/ransomware-defense-guide.jpg"
   },
   {
     "slug": "remote-work-security-guide-2026",
@@ -286,7 +286,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed Security",
     "readTime": "202612 min read",
-    "image": "https://www.secureme247.com/images/blog/remote-work-security-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/5c85abc2-1556-4e14-a00d-e6384f1dca31/remote-work-security-guide-2026.jpg"
   },
   {
     "slug": "reston-cybersecurity-guide-2026",
@@ -295,7 +295,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Threat Intelligence",
     "readTime": "202612 min read",
-    "image": "https://www.secureme247.com/images/blog/reston-cybersecurity-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/b333aed1-2f94-4686-a6fd-a70b3a9dbe47/reston-cybersecurity-guide-2026.jpg"
   },
   {
     "slug": "small-business-cybersecurity-guide-2026",
@@ -304,7 +304,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "IT Strategy",
     "readTime": "202612 min read",
-    "image": "https://www.secureme247.com/images/blog/small-business-cybersecurity-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/4aa84f11-af2b-48da-8cb2-18d4e797808b/small-business-cybersecurity-guide-2026.jpg"
   },
   {
     "slug": "soc2-compliance-checklist",
@@ -313,7 +313,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Compliance",
     "readTime": "20269 min read",
-    "image": "https://www.secureme247.com/images/blog/soc2-compliance-checklist.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/36a6113d-32d5-433f-bd5a-3be364922fd0/soc2-compliance-checklist.jpg"
   },
   {
     "slug": "social-engineering-attacks-guide-2026",
@@ -322,7 +322,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Security Awareness",
     "readTime": "202614 min read",
-    "image": "https://www.secureme247.com/images/blog/social-engineering-attacks-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/7bf20922-57aa-4e28-8ac5-93c96e5705a4/social-engineering-attacks-guide-2026.jpg"
   },
   {
     "slug": "third-party-vendor-risk-management-2026",
@@ -331,7 +331,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Threat Intelligence",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/third-party-vendor-risk-management-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/5c002129-0789-4f86-9bd9-a3824bba8461/third-party-vendor-risk-management-2026.jpg"
   },
   {
     "slug": "top-10-cyber-threats-2026",
@@ -340,7 +340,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Threat Intelligence",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/top-10-cyber-threats-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/c1f22ecf-8683-4060-a8ed-4e7e32a0a7c7/top-10-cyber-threats-2026.jpg"
   },
   {
     "slug": "voip-security-guide",
@@ -349,7 +349,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Network Security",
     "readTime": "202610 min read",
-    "image": "https://www.secureme247.com/images/blog/voip-security-guide.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/8b775770-f6cd-40c6-9e79-a9aa96ca1d75/voip-security-guide.jpg"
   },
   {
     "slug": "vulnerability-management-guide-2026",
@@ -358,7 +358,7 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed Security",
     "readTime": "202611 min read",
-    "image": "https://www.secureme247.com/images/blog/vulnerability-management-guide-2026.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/5faa9406-61e2-4234-a394-cf54bd15c6a0/vulnerability-management-guide-2026.jpg"
   },
   {
     "slug": "zero-trust-architecture-guide",
@@ -367,6 +367,6 @@ export const blogPosts = [
     "date": "June 14, 2026",
     "category": "Managed Security",
     "readTime": "202611 min read",
-    "image": "https://www.secureme247.com/images/blog/zero-trust-architecture-guide.jpg?v=mq3xnmz5"
+    "image": "/__l5e/assets-v1/f605fe62-416d-4709-8769-61e903e9318e/zero-trust-architecture-guide.jpg"
   }
 ] as const;
