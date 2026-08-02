@@ -2,11 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ShieldCheck, Clock, Users, Target } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About SecureMe247 | MSP & MSSP in Reston, Virginia" },
+      { title: "About SecureMe247 | MSP & MSSP in Reston, VA" },
       {
         name: "description",
         content:
@@ -17,7 +18,9 @@ export const Route = createFileRoute("/about")({
         property: "og:description",
         content: "One partner for IT operations and cyber defense, based in Reston, Virginia.",
       },
+      { property: "og:url", content: `${SITE_URL}/about` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
   }),
   component: AboutPage,
 });

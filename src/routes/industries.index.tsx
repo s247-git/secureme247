@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { industries } from "@/data/industries";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/industries/")({
   head: () => ({
@@ -18,7 +19,9 @@ export const Route = createFileRoute("/industries/")({
         property: "og:description",
         content: "Industry-specific cybersecurity programs mapped to the regulations you face.",
       },
+      { property: "og:url", content: `${SITE_URL}/industries` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/industries` }],
   }),
   component: IndustriesIndex,
 });
@@ -45,7 +48,7 @@ function IndustriesIndex() {
                 {i.description}
               </p>
               <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                Explore{" "}
+                Explore {i.title}{" "}
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>

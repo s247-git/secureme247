@@ -4,6 +4,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { cities } from "@/data/locations";
 import { services } from "@/data/services";
+import { SITE_URL, seoTitle } from "@/lib/seo";
 
 export const Route = createFileRoute("/cybersecurity/$city")({
   loader: ({ params }) => {
@@ -16,15 +17,18 @@ export const Route = createFileRoute("/cybersecurity/$city")({
       return { meta: [{ title: "Location not found" }, { name: "robots", content: "noindex" }] };
     }
     const { city } = loaderData;
-    const title = `Cybersecurity & Managed IT in ${city.name}, ${city.stateCode} | SecureMe247`;
+    const title = seoTitle(`Cybersecurity & Managed IT in ${city.name}, ${city.stateCode}`);
     const description = `24/7 managed detection and response, IT support and compliance services for ${city.name}, ${city.state} businesses. Free security assessment.`;
+    const url = `${SITE_URL}/cybersecurity/${city.slug}`;
     return {
       meta: [
         { title },
         { name: "description", content: description },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   component: CityPage,

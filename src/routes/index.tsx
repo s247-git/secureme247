@@ -20,6 +20,7 @@ import { CtaSection } from "@/components/site/CtaSection";
 import { services as serviceData } from "@/data/services";
 import { blogPosts } from "@/data/blogPosts";
 import { cleanReadTime } from "@/lib/blogContent";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,7 +37,9 @@ export const Route = createFileRoute("/")({
         content:
           "24/7 SOC monitoring, MDR, penetration testing, vCISO and compliance for growing businesses.",
       },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Index,
 });
@@ -175,7 +178,7 @@ function Index() {
                   {s.description}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                  Learn more{" "}
+                  Explore {s.title}{" "}
                   <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
               </Link>

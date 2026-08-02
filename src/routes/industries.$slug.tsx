@@ -4,6 +4,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { SectionBlocks } from "@/components/site/SectionBlocks";
 import { industries } from "@/data/industries";
+import { SITE_URL, seoTitle } from "@/lib/seo";
 
 export const Route = createFileRoute("/industries/$slug")({
   loader: ({ params }) => {
@@ -16,14 +17,17 @@ export const Route = createFileRoute("/industries/$slug")({
       return { meta: [{ title: "Industry not found" }, { name: "robots", content: "noindex" }] };
     }
     const { industry } = loaderData;
-    const title = `${industry.title} | SecureMe247`;
+    const title = seoTitle(industry.title);
+    const url = `${SITE_URL}/industries/${industry.slug}`;
     return {
       meta: [
         { title },
         { name: "description", content: industry.description },
         { property: "og:title", content: title },
         { property: "og:description", content: industry.description },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   component: IndustryDetail,

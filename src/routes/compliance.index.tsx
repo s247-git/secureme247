@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { complianceFrameworks } from "@/data/complianceFrameworks";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/compliance/")({
   head: () => ({
@@ -18,7 +19,9 @@ export const Route = createFileRoute("/compliance/")({
         property: "og:description",
         content: "Twelve regulatory frameworks mapped to your controls and kept audit-ready.",
       },
+      { property: "og:url", content: `${SITE_URL}/compliance` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/compliance` }],
   }),
   component: ComplianceIndex,
 });

@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { services } from "@/data/services";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
@@ -18,7 +19,9 @@ export const Route = createFileRoute("/services/")({
         property: "og:description",
         content: "Nine managed security and IT service lines backed by a 24/7 SOC.",
       },
+      { property: "og:url", content: `${SITE_URL}/services` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/services` }],
   }),
   component: ServicesIndex,
 });
@@ -44,7 +47,7 @@ function ServicesIndex() {
               <h2 className="mt-4 text-lg font-semibold">{s.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
               <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                Learn more{" "}
+                Explore {s.title}{" "}
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
