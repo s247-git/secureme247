@@ -35,8 +35,8 @@ const Email = ({ name, email, company, phone, service, message, source }: Props)
     <Preview>{`New managed IT services inquiry from ${name || 'a website visitor'}${company ? ` at ${company}` : ''}`}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={brand}>SECUREME247 · MANAGED IT SERVICES</Text>
-        <Heading style={h1}>New managed IT services inquiry</Heading>
+        <Text style={brand}>SecureMe247 · Managed IT Services</Text>
+        <Heading style={h1}>New website inquiry</Heading>
         <Text style={intro}>
           A prospective client submitted the contact form on secureme247.com. Reply directly to
           this email to reach them — reply-to is set to their address.
@@ -64,7 +64,7 @@ const Email = ({ name, email, company, phone, service, message, source }: Props)
 export const template = {
   component: Email,
   subject: (data: Record<string, any>) =>
-    `New IT services inquiry${data['name'] ? ` from ${data['name']}` : ''}${data['company'] ? ` (${data['company']})` : ''} — SecureMe247`,
+    `Website inquiry${data['name'] ? ` from ${data['name']}` : ''}${data['company'] ? ` (${data['company']})` : ''}`,
   displayName: 'IT services inquiry (internal notification)',
   to: 'info@secureme247.com',
   previewData: {
