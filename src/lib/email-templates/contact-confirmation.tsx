@@ -11,6 +11,7 @@ import {
   Text,
 } from '@react-email/components'
 import type { TemplateEntry } from './registry'
+import { getServiceEmailCopy } from './service-copy'
 
 interface Props {
   name?: string
@@ -18,19 +19,17 @@ interface Props {
   service?: string
 }
 
-const Email = ({ name, message, service }: Props) => (
+const Email = ({ name, message, service }: Props) => {
+  const copy = getServiceEmailCopy(service)
+  return (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>Your request has been received. A SecureMe247 IT specialist will reply within one business day.</Preview>
+    <Preview>{`Your ${copy.label} request has been received. A SecureMe247 specialist will reply within one business day.`}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={brand}>SecureMe247 · Managed IT Services</Text>
+        <Text style={brand}>SecureMe247 · {copy.label}</Text>
         <Heading style={h1}>Thanks{name ? `, ${name}` : ''}, we received your request</Heading>
-        <Text style={p}>
-          A SecureMe247 IT specialist will review what you sent and reply within one business day
-          to arrange an assessment of your environment. If your systems are down or you have an
-          urgent issue, our helpdesk is available at any time.
-        </Text>
+        <Text style={p}>{copy.intro}</Text>
         <Text style={p}>
           <Link href="tel:+17037550014" style={link}>
             (703) 755-0014
@@ -39,17 +38,17 @@ const Email = ({ name, message, service }: Props) => (
         <Hr style={hr} />
         <Text style={labelStyle}>What we cover on the first call</Text>
         <Text style={p}>
-          · Your current IT setup: users, devices, servers, and cloud (Microsoft 365 / Google
-          Workspace)
-          <br />· Helpdesk response times and where support is falling short today
-          <br />· Backup, disaster recovery, and cybersecurity gaps
-          <br />· A managed IT plan sized to your team
+          {copy.agenda.map((item, i) => (
+            <React.Fragment key={item}>
+              {i > 0 ? <br /> : null}· {item}
+            </React.Fragment>
+          ))}
         </Text>
         {service ? (
           <>
             <Hr style={hr} />
             <Text style={labelStyle}>Service you asked about</Text>
-            <Text style={quote}>{service}</Text>
+            <Text style={quote}>{copy.label}</Text>
           </>
         ) : null}
         {message ? (
@@ -69,15 +68,16 @@ const Email = ({ name, message, service }: Props) => (
       </Container>
     </Body>
   </Html>
-)
+  )
+}
 
 export const template = {
   component: Email,
-  subject: 'Your request to SecureMe247 has been received',
+  subject: (data: Record<string, any>) => getServiceEmailCopy(data['service']).subject,
   displayName: 'IT inquiry confirmation (to visitor)',
   previewData: {
     name: 'Jane',
-    service: 'Managed IT Support (Helpdesk + Monitoring)',
+    service: 'it-support',
     message:
       'We have 42 users across two offices and need a responsive IT partner for day-to-day support.',
   },
