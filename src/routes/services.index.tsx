@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { services } from "@/data/services";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
@@ -18,7 +19,9 @@ export const Route = createFileRoute("/services/")({
         property: "og:description",
         content: "Nine managed security and IT service lines backed by a 24/7 SOC.",
       },
+      { property: "og:url", content: `${SITE_URL}/services` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/services` }],
   }),
   component: ServicesIndex,
 });
