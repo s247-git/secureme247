@@ -1,10 +1,11 @@
 import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
+import { AlertTriangle } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { SectionBlocks } from "@/components/site/SectionBlocks";
 import { FaqAccordion } from "@/components/site/FaqAccordion";
 import { services } from "@/data/services";
-import { serviceContent } from "@/data/serviceContent";
+import { serviceContent, type ServiceContent } from "@/data/serviceContent";
 import { legacyRedirect } from "@/lib/redirects";
 import { SITE_URL, seoTitle } from "@/lib/seo";
 
@@ -72,7 +73,8 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServiceDetail() {
-  const { service, content } = Route.useLoaderData();
+  const { service } = Route.useLoaderData();
+  const content: ServiceContent | null = serviceContent[service.slug] ?? null;
   const related = services.filter((s) => s.slug !== service.slug).slice(0, 4);
 
   return (
