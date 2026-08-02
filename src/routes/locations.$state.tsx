@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { states, cities, type City } from "@/data/locations";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/locations/$state")({
   loader: ({ params }) => {
@@ -16,13 +17,16 @@ export const Route = createFileRoute("/locations/$state")({
     const { state, list } = loaderData;
     const title = `Managed IT & Cybersecurity in ${state.name} | SecureMe247`;
     const description = `Managed security, IT support and compliance services across ${list.length} cities in ${state.name}, delivered 24/7 by SecureMe247.`;
+    const url = `${SITE_URL}/locations/${state.slug}`;
     return {
       meta: [
         { title },
         { name: "description", content: description },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   component: StatePage,
