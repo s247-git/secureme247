@@ -1,14 +1,19 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { SectionBlocks } from "@/components/site/SectionBlocks";
 import { localPages } from "@/data/localPages";
+import { legacyRedirect } from "@/lib/redirects";
 import { SITE_URL, seoTitle } from "@/lib/seo";
 
 export const Route = createFileRoute("/$slug")({
   loader: ({ params }) => {
     const page = localPages.find((p) => p.slug === params.slug);
-    if (!page) throw notFound();
+    if (!page) {
+      const target = legacyRedirect(`/${params.slug}`);
+      if (target) throw redirect({ href: target, statusCode: 301 });
+      throw notFound();
+    }
     return { page };
   },
   head: ({ loaderData }) => {
