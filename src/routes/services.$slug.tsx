@@ -78,7 +78,77 @@ function ServiceDetail() {
   return (
     <>
       <PageHero eyebrow={service.eyebrow} title={service.title} intro={service.tagline} />
-      <SectionBlocks sections={service.sections} />
+
+      {content ? (
+        <>
+          <section className="mx-auto max-w-3xl px-6 py-16">
+            <p className="text-xl font-medium leading-relaxed text-foreground">
+              {content.h1Support}
+            </p>
+            <div className="mt-8 space-y-5 leading-relaxed text-muted-foreground">
+              {content.overview.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </section>
+
+          <section className="border-y border-border/60 bg-surface/40">
+            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 lg:grid-cols-4">
+              {content.stats.map((s) => (
+                <div key={s.label}>
+                  <p className="font-mono text-3xl font-bold text-primary">{s.value}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-7xl px-6 py-16">
+            <h2 className="text-3xl font-bold tracking-tight">{content.signsHeading}</h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              If two or more of these are true, this is worth a conversation.
+            </p>
+            <ul className="mt-10 grid gap-3 md:grid-cols-2">
+              {content.signs.map((sign) => (
+                <li
+                  key={sign}
+                  className="flex items-start gap-3 rounded-xl border border-border bg-surface px-5 py-4"
+                >
+                  <AlertTriangle className="mt-0.5 size-4 shrink-0 text-primary" />
+                  <span className="text-sm text-muted-foreground">{sign}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <SectionBlocks sections={[content.deepDive]} />
+
+          <section className="mx-auto max-w-7xl px-6 py-16">
+            <h2 className="text-3xl font-bold tracking-tight">How we deliver it</h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              A repeatable process, not a custom experiment on your business.
+            </p>
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {content.process.map((step) => (
+                <div key={step.title} className="rounded-2xl border border-border bg-surface p-7">
+                  <h3 className="text-base font-semibold text-primary">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <SectionBlocks sections={[content.mistakes]} />
+
+          <section className="mx-auto max-w-3xl px-6 pb-4">
+            <FaqAccordion
+              items={content.faqs.map((f) => ({ question: f.question, answer: f.answer }))}
+            />
+          </section>
+        </>
+      ) : (
+        <SectionBlocks sections={service.sections} />
+      )}
 
       <section className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-2xl font-bold tracking-tight">Related services</h2>
