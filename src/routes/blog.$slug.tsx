@@ -4,6 +4,7 @@ import { CtaSection } from "@/components/site/CtaSection";
 import { Prose } from "@/components/site/Prose";
 import { blogPosts } from "@/data/blogPosts";
 import { blogContent, cleanReadTime } from "@/lib/blogContent";
+import { SITE_URL, absoluteUrl, seoTitle } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -16,7 +17,9 @@ export const Route = createFileRoute("/blog/$slug")({
       return { meta: [{ title: "Article not found" }, { name: "robots", content: "noindex" }] };
     }
     const { post } = loaderData;
-    const title = `${post.title} | SecureMe247`;
+    const title = seoTitle(post.title);
+    const url = `${SITE_URL}/blog/${post.slug}`;
+    const image = absoluteUrl(post.image);
     return {
       meta: [
         { title },
@@ -24,8 +27,27 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: post.title },
         { property: "og:description", content: post.description },
         { property: "og:type", content: "article" },
-        { property: "og:image", content: post.image },
-        { name: "twitter:image", content: post.image },
+        { property: "og:url", content: url },
+        { property: "og:image", content: image },
+        { name: "twitter:image", content: image },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.description,
+            image,
+            datePublished: post.date,
+            articleSection: post.category,
+            mainEntityOfPage: url,
+            author: { "@type": "Organization", name: "SecureMe247" },
+            publisher: { "@type": "Organization", name: "SecureMe247", url: SITE_URL },
+          }),
+        },
       ],
     };
   },
