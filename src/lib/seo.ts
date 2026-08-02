@@ -24,7 +24,7 @@ export const organizationSchema = {
   email: "info@secureme247.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "11890 Sunrise Valley Dr",
+    streetAddress: "11890 Sunrise Valley Dr Ste 540",
     addressLocality: "Reston",
     addressRegion: "VA",
     postalCode: "20191",

@@ -82,7 +82,7 @@ function ContactPage() {
             </a>
           </ContactItem>
           <ContactItem icon={MapPin} label="Headquarters">
-            11890 Sunrise Valley Dr, Suite 300, Reston, VA 20191
+            11890 Sunrise Valley Dr Ste 540, Reston, VA 20191
           </ContactItem>
           <ContactItem icon={Clock} label="SOC Hours">
             24/7/365 monitoring · Office Mon–Fri, 8am–6pm ET
