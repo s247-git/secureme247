@@ -3,6 +3,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { SectionBlocks } from "@/components/site/SectionBlocks";
 import { localPages } from "@/data/localPages";
+import { SITE_URL, seoTitle } from "@/lib/seo";
 
 export const Route = createFileRoute("/$slug")({
   loader: ({ params }) => {
@@ -15,13 +16,16 @@ export const Route = createFileRoute("/$slug")({
       return { meta: [{ title: "Page not found" }, { name: "robots", content: "noindex" }] };
     }
     const { page } = loaderData;
+    const url = `${SITE_URL}/${page.slug}`;
     return {
       meta: [
-        { title: `${page.title} | SecureMe247` },
+        { title: seoTitle(page.title) },
         { name: "description", content: page.description },
         { property: "og:title", content: page.title },
         { property: "og:description", content: page.description },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   component: LocalPage,
