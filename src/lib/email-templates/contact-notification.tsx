@@ -32,21 +32,30 @@ const Row = ({ label, value }: { label: string; value?: string | undefined }) =>
 const Email = ({ name, email, company, phone, service, message, source }: Props) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>{`New inquiry from ${name || 'a website visitor'}`}</Preview>
+    <Preview>{`New managed IT services inquiry from ${name || 'a website visitor'}${company ? ` at ${company}` : ''}`}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Heading style={h1}>New contact request</Heading>
-        <Text style={intro}>A new inquiry was submitted on secureme247.com.</Text>
+        <Text style={brand}>SECUREME247 · MANAGED IT SERVICES</Text>
+        <Heading style={h1}>New managed IT services inquiry</Heading>
+        <Text style={intro}>
+          A prospective client submitted the contact form on secureme247.com. Reply directly to
+          this email to reach them — reply-to is set to their address.
+        </Text>
         <Hr style={hr} />
         <Row label="Name" value={name} />
-        <Row label="Email" value={email} />
+        <Row label="Work email" value={email} />
         <Row label="Company" value={company} />
         <Row label="Phone" value={phone} />
-        <Row label="Service" value={service} />
-        <Row label="Page" value={source} />
+        <Row label="Service interest" value={service} />
+        <Row label="Submitted from" value={source} />
         <Hr style={hr} />
-        <Text style={labelStyle}>Message</Text>
+        <Text style={labelStyle}>What they need</Text>
         <Text style={row}>{message || '(no message provided)'}</Text>
+        <Hr style={hr} />
+        <Text style={intro}>
+          Next step: qualify the environment (user count, servers, cloud tenant, current IT
+          provider) and book a free IT assessment.
+        </Text>
       </Container>
     </Body>
   </Html>
@@ -55,22 +64,24 @@ const Email = ({ name, email, company, phone, service, message, source }: Props)
 export const template = {
   component: Email,
   subject: (data: Record<string, any>) =>
-    `New contact request${data['name'] ? ` from ${data['name']}` : ''} — SecureMe247`,
-  displayName: 'Contact request (internal notification)',
+    `New IT services inquiry${data['name'] ? ` from ${data['name']}` : ''}${data['company'] ? ` (${data['company']})` : ''} — SecureMe247`,
+  displayName: 'IT services inquiry (internal notification)',
   to: 'info@secureme247.com',
   previewData: {
     name: 'Jane Doe',
     email: 'jane@acme.com',
     company: 'Acme Corp',
     phone: '(703) 555-0100',
-    service: 'Managed Detection & Response',
-    message: 'We need SOC 2 readiness support before our audit in Q3.',
+    service: 'Managed IT Support (Helpdesk + Monitoring)',
+    message:
+      'We have 42 users across two offices, Microsoft 365, and one on-prem file server. Our current IT provider is slow to respond and we want to move to a fully managed plan.',
     source: '/contact',
   },
 } satisfies TemplateEntry
 
 const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, Helvetica, sans-serif' }
 const container = { padding: '24px 28px', maxWidth: '560px' }
+const brand = { fontSize: '11px', letterSpacing: '2px', color: '#166534', fontWeight: 700, margin: '0 0 10px' }
 const h1 = { fontSize: '20px', color: '#0b1a12', margin: '0 0 8px' }
 const intro = { fontSize: '14px', color: '#4b5563', margin: '0 0 8px' }
 const row = { fontSize: '14px', color: '#111827', margin: '4px 0', lineHeight: '20px' }

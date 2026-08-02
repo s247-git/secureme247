@@ -15,25 +15,44 @@ import type { TemplateEntry } from './registry'
 interface Props {
   name?: string
   message?: string
+  service?: string
 }
 
-const Email = ({ name, message }: Props) => (
+const Email = ({ name, message, service }: Props) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>We received your request — a SecureMe247 analyst will be in touch</Preview>
+    <Preview>We got your request — a SecureMe247 IT specialist will be in touch shortly</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={brand}>SecureMe247</Text>
-        <Heading style={h1}>Thanks{name ? `, ${name}` : ''} — we got your request</Heading>
+        <Text style={brand}>SECUREME247 · MANAGED IT SERVICES</Text>
+        <Heading style={h1}>Thanks{name ? `, ${name}` : ''} — your request is in</Heading>
         <Text style={p}>
-          A SecureMe247 security analyst will review your request and reach out within one
-          business day. If your situation is urgent, call us any time — our SOC operates 24/7.
+          A SecureMe247 IT specialist will review your request and reach out within one business
+          day to schedule a free, no-obligation IT assessment of your environment. If your systems
+          are down or you have an urgent issue, call us any time — our helpdesk and monitoring run
+          24/7/365.
         </Text>
         <Text style={p}>
           <Link href="tel:+17037550014" style={link}>
             (703) 755-0014
           </Link>
         </Text>
+        <Hr style={hr} />
+        <Text style={labelStyle}>What we&rsquo;ll cover on the first call</Text>
+        <Text style={p}>
+          · Your current IT setup — users, devices, servers, and cloud (Microsoft 365 / Google
+          Workspace)
+          <br />· Helpdesk response times and where support is falling short today
+          <br />· Backup, disaster recovery, and cybersecurity gaps
+          <br />· A flat-rate managed IT plan sized to your team
+        </Text>
+        {service ? (
+          <>
+            <Hr style={hr} />
+            <Text style={labelStyle}>Service you asked about</Text>
+            <Text style={quote}>{service}</Text>
+          </>
+        ) : null}
         {message ? (
           <>
             <Hr style={hr} />
@@ -43,7 +62,7 @@ const Email = ({ name, message }: Props) => (
         ) : null}
         <Hr style={hr} />
         <Text style={footer}>
-          SecureMe247 · Reston, Virginia ·{' '}
+          SecureMe247 — Managed IT Services, Helpdesk &amp; Cybersecurity · Reston, Virginia ·{' '}
           <Link href="https://secureme247.com" style={link}>
             secureme247.com
           </Link>
@@ -55,11 +74,13 @@ const Email = ({ name, message }: Props) => (
 
 export const template = {
   component: Email,
-  subject: 'We received your request — SecureMe247',
-  displayName: 'Contact confirmation (to visitor)',
+  subject: 'We got your request — SecureMe247 Managed IT Services',
+  displayName: 'IT inquiry confirmation (to visitor)',
   previewData: {
     name: 'Jane',
-    message: 'We need SOC 2 readiness support before our audit in Q3.',
+    service: 'Managed IT Support (Helpdesk + Monitoring)',
+    message:
+      'We have 42 users across two offices and need a responsive IT partner for day-to-day support.',
   },
 } satisfies TemplateEntry
 
