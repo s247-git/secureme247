@@ -13,11 +13,21 @@ const links = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  // On the homepage the route doesn't change when the logo is clicked, so
+  // scroll back to the top to make the click feel responsive.
+  const onLogoClick = () => {
+    setOpen(false);
+    if (pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" onClick={onLogoClick} className="flex items-center gap-3">
           <span className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-glow-sm">
             <ShieldCheck className="size-5" />
           </span>
