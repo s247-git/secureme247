@@ -1,16 +1,13 @@
-import { cities } from "@/data/locations";
+import { cities, states } from "@/data/locations";
 import { localPages } from "@/data/localPages";
 import { services } from "@/data/services";
 import { blogPosts } from "@/data/blogPosts";
-import { states } from "@/data/locations";
 
 const citySlugs = new Set(cities.map((c) => c.slug));
 const localSlugs = new Set(localPages.map((p) => p.slug));
 const serviceSlugs = new Set(services.map((s) => s.slug));
 const blogSlugs = new Set(blogPosts.map((p) => p.slug));
-const stateSlugs = new Set(
-  (states as ReadonlyArray<{ slug: string }> | undefined)?.map((s) => s.slug) ?? [],
-);
+const stateSlugs = new Set(states.map((s) => s.slug));
 
 /** Old blog slugs from the previous site that no longer exist. */
 export const blogAliases: Record<string, string> = {
