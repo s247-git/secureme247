@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, Clock, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import { services } from "@/data/services";
+import { SITE_URL, organizationSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -17,6 +18,34 @@ export const Route = createFileRoute("/contact")({
       {
         property: "og:description",
         content: "Get a free, no-commitment security assessment from our Reston, VA team.",
+      },
+      { property: "og:url", content: `${SITE_URL}/contact` },
+    ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          ...organizationSchema,
+          "@type": "LocalBusiness",
+          url: `${SITE_URL}/contact`,
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "00:00",
+              closes: "23:59",
+            },
+          ],
+        }),
       },
     ],
   }),
