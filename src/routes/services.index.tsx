@@ -44,7 +44,7 @@ function ServicesIndex() {
               <h2 className="mt-4 text-lg font-semibold">{s.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
               <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                Learn more{" "}
+                Explore {s.title}{" "}
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
