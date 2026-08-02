@@ -10,6 +10,7 @@ import {
   Text,
 } from '@react-email/components'
 import type { TemplateEntry } from './registry'
+import { getServiceEmailCopy } from './service-copy'
 
 interface Props {
   name?: string
@@ -29,14 +30,16 @@ const Row = ({ label, value }: { label: string; value?: string | undefined }) =>
     </Text>
   ) : null
 
-const Email = ({ name, email, company, phone, service, message, source }: Props) => (
+const Email = ({ name, email, company, phone, service, message, source }: Props) => {
+  const copy = getServiceEmailCopy(service)
+  return (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>{`New managed IT services inquiry from ${name || 'a website visitor'}${company ? ` at ${company}` : ''}`}</Preview>
+    <Preview>{`New ${copy.label} inquiry from ${name || 'a website visitor'}${company ? ` at ${company}` : ''}`}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={brand}>SecureMe247 · Managed IT Services</Text>
-        <Heading style={h1}>New website inquiry</Heading>
+        <Text style={brand}>SecureMe247 · {copy.label}</Text>
+        <Heading style={h1}>New {copy.label} inquiry</Heading>
         <Text style={intro}>
           A prospective client submitted the contact form on secureme247.com. Reply directly to
           this email to reach them. Reply-to is set to their address.
@@ -46,25 +49,30 @@ const Email = ({ name, email, company, phone, service, message, source }: Props)
         <Row label="Work email" value={email} />
         <Row label="Company" value={company} />
         <Row label="Phone" value={phone} />
-        <Row label="Service interest" value={service} />
+        <Row label="Service interest" value={copy.label} />
         <Row label="Submitted from" value={source} />
         <Hr style={hr} />
         <Text style={labelStyle}>What they need</Text>
         <Text style={row}>{message || '(no message provided)'}</Text>
         <Hr style={hr} />
-        <Text style={intro}>
-          Next step: qualify the environment (user count, servers, cloud tenant, current IT
-          provider) and book a free IT assessment.
+        <Text style={labelStyle}>Qualify on the first call</Text>
+        <Text style={row}>
+          {copy.qualify.map((item, i) => (
+            <React.Fragment key={item}>
+              {i > 0 ? <br /> : null}· {item}
+            </React.Fragment>
+          ))}
         </Text>
       </Container>
     </Body>
   </Html>
-)
+  )
+}
 
 export const template = {
   component: Email,
   subject: (data: Record<string, any>) =>
-    `Website inquiry${data['name'] ? ` from ${data['name']}` : ''}${data['company'] ? ` (${data['company']})` : ''}`,
+    `${getServiceEmailCopy(data['service']).label} inquiry${data['name'] ? ` from ${data['name']}` : ''}${data['company'] ? ` (${data['company']})` : ''}`,
   displayName: 'IT services inquiry (internal notification)',
   to: 'info@secureme247.com',
   previewData: {
@@ -72,7 +80,7 @@ export const template = {
     email: 'jane@acme.com',
     company: 'Acme Corp',
     phone: '(703) 555-0100',
-    service: 'Managed IT Support (Helpdesk + Monitoring)',
+    service: 'it-support',
     message:
       'We have 42 users across two offices, Microsoft 365, and one on-prem file server. Our current IT provider is slow to respond and we want to move to a fully managed plan.',
     source: '/contact',
