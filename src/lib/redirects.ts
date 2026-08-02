@@ -3,11 +3,11 @@ import { localPages } from "@/data/localPages";
 import { services } from "@/data/services";
 import { blogPosts } from "@/data/blogPosts";
 
-const citySlugs = new Set(cities.map((c) => c.slug));
-const localSlugs = new Set(localPages.map((p) => p.slug));
-const serviceSlugs = new Set(services.map((s) => s.slug));
-const blogSlugs = new Set(blogPosts.map((p) => p.slug));
-const stateSlugs = new Set(states.map((s) => s.slug));
+const citySlugs = new Set<string>(cities.map((c) => c.slug));
+const localSlugs = new Set<string>(localPages.map((p) => p.slug));
+const serviceSlugs = new Set<string>(services.map((s) => s.slug));
+const blogSlugs = new Set<string>(blogPosts.map((p) => p.slug));
+const stateSlugs = new Set<string>(states.map((s) => s.slug));
 
 /** Old blog slugs from the previous site that no longer exist. */
 export const blogAliases: Record<string, string> = {
@@ -78,17 +78,19 @@ export function legacyRedirect(pathname: string): string | null {
   if (staticRedirects[clean]) return staticRedirects[clean];
 
   const parts = clean.slice(1).split("/");
+  const seg = (i: number): string => parts[i] ?? "";
 
   // /{city} -> /cybersecurity/{city}
   if (parts.length === 1) {
-    const city = citySlugFor(parts[0]);
+    const city = citySlugFor(seg(0));
     if (city) return `/cybersecurity/${city}`;
-    if (stateSlugs.has(parts[0])) return `/locations/${parts[0]}`;
+    if (stateSlugs.has(seg(0))) return `/locations/${seg(0)}`;
     return null;
   }
 
   if (parts.length === 2) {
-    const [first, second] = parts;
+    const first = seg(0);
+    const second = seg(1);
 
     // /local/{slug} -> /{slug}
     if (first === "local") {
@@ -123,8 +125,9 @@ export function legacyRedirect(pathname: string): string | null {
       return null;
     }
 
-    if (first === "locations" && citySlugFor(second) && !stateSlugs.has(second)) {
-      return `/cybersecurity/${citySlugFor(second)}`;
+    if (first === "locations" && !stateSlugs.has(second)) {
+      const city = citySlugFor(second);
+      if (city) return `/cybersecurity/${city}`;
     }
   }
 
