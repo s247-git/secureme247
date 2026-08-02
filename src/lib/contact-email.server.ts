@@ -28,7 +28,7 @@ export async function sendContactEmails(
 
   try {
     await sendTemplateEmail("contact-confirmation", data.email, {
-      templateData: { name: data.name, message: data.message },
+      templateData: { name: data.name, message: data.message, service: data.service },
       idempotencyKey: `contact-confirmation-${submissionId}`,
     });
   } catch (err) {
