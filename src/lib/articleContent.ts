@@ -64,7 +64,7 @@ export function parseArticle(markdown: string) {
     if (!match) continue;
     const text = headingText(line);
     if (!text) continue;
-    toc.push({ id: slugifyHeading(text), text, level: match[1].length as 2 | 3 });
+    toc.push({ id: slugifyHeading(text), text, level: (match[1]?.length ?? 2) as 2 | 3 });
   }
   if (faqs.length > 0) {
     toc.push({ id: "faq", text: "Frequently Asked Questions", level: 2 });
