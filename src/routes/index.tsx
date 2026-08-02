@@ -74,7 +74,7 @@ const why = [
   {
     Icon: BrainCircuit,
     title: "AI-Powered Detection",
-    body: "Machine learning models trained on millions of threat signals identify attacks that traditional tools miss — before they cause damage.",
+    body: "Machine learning models trained on millions of threat signals identify attacks that traditional tools miss, before they cause damage.",
   },
   {
     Icon: BadgeCheck,

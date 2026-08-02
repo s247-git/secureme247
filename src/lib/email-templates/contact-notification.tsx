@@ -39,7 +39,7 @@ const Email = ({ name, email, company, phone, service, message, source }: Props)
         <Heading style={h1}>New website inquiry</Heading>
         <Text style={intro}>
           A prospective client submitted the contact form on secureme247.com. Reply directly to
-          this email to reach them — reply-to is set to their address.
+          this email to reach them. Reply-to is set to their address.
         </Text>
         <Hr style={hr} />
         <Row label="Name" value={name} />
