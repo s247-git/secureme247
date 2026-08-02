@@ -10,7 +10,12 @@ export function slugifyHeading(text: string) {
 }
 
 function headingText(line: string) {
-  return line.replace(/^#{2,3}\s+/, "").replace(/[*_`]/g, "").trim();
+  return line
+    .replace(/^#{2,4}\s+/, "")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/[*_`]/g, "")
+    .replace(/\\([^\\])/g, "$1")
+    .trim();
 }
 
 /**
