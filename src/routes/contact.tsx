@@ -66,7 +66,7 @@ function ContactPage() {
           Get Your Free Security Assessment
         </h1>
         <p className="mt-5 text-muted-foreground">
-          Tell us what you're worried about. A senior analyst — not a sales rep — will review your
+          Tell us what you're worried about. A senior analyst (not a sales rep) will review your
           environment and share findings. No commitment, NDA on request.
         </p>
 
@@ -112,7 +112,7 @@ function ContactPage() {
           try {
             await send({ data: payload });
             form.reset();
-            toast.success("Request received — an analyst will reach out within one business day.");
+            toast.success("Request received. An analyst will reach out within one business day.");
           } catch (err) {
             console.error(err);
             toast.error("Something went wrong. Please call (703) 755-0014 or email info@secureme247.com.");

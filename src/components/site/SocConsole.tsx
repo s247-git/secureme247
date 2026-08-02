@@ -27,7 +27,7 @@ export function SocConsole() {
             A Look Inside a SOC
           </h2>
           <p className="mt-5 max-w-lg text-muted-foreground">
-            This is what our security analysts see 24/7 — the live operations dashboard monitoring
+            This is what our security analysts see 24/7: the live operations dashboard monitoring
             threats across every client environment. When you partner with SecureMe247,{" "}
             <strong className="text-foreground">your business is watched by our team</strong>.
           </p>
@@ -52,7 +52,7 @@ export function SocConsole() {
 
         <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-glow-sm">
           <div className="flex items-center justify-between border-b border-border px-5 py-3">
-            <span className="label-mono text-muted-foreground">SecureMe247 — SOC Console</span>
+            <span className="label-mono text-muted-foreground">SecureMe247 · SOC Console</span>
             <span className="inline-flex items-center gap-2 text-xs font-medium text-primary">
               <span className="size-2 animate-pulse-dot rounded-full bg-primary" /> Live
             </span>

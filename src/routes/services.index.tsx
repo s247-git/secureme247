@@ -12,7 +12,7 @@ export const Route = createFileRoute("/services/")({
       {
         name: "description",
         content:
-          "MDR, endpoint, network and cloud security, IT support, backup, compliance, penetration testing and vCISO — all from one 24/7 partner.",
+          "MDR, endpoint, network and cloud security, IT support, backup, compliance, penetration testing and vCISO, all from one 24/7 partner.",
       },
       { property: "og:title", content: "Cybersecurity & IT Services | SecureMe247" },
       {

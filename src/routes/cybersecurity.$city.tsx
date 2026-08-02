@@ -38,7 +38,7 @@ const highlights = [
   "24/7/365 SOC monitoring with 30-minute response",
   "Managed detection and response across endpoints, cloud and identity",
   "Compliance programs for SOC 2, HIPAA, PCI DSS, CMMC and NIST CSF",
-  "Named engineers who learn your environment — no ticket roulette",
+  "Named engineers who learn your environment, with no ticket roulette",
   "Flat monthly pricing with no hidden tiers or upsells",
   "Free initial assessment with no commitment",
 ];
@@ -54,7 +54,7 @@ function CityPage() {
       <PageHero
         eyebrow={`${city.name}, ${city.stateCode}`}
         title={`Cybersecurity & Managed IT in ${city.name}`}
-        intro={`SecureMe247 protects ${city.name} businesses with enterprise-grade security operations, IT support and compliance — delivered remotely 24/7 with on-site help when it matters.`}
+        intro={`SecureMe247 protects ${city.name} businesses with enterprise-grade security operations, IT support and compliance, delivered remotely 24/7 with on-site help when it matters.`}
       />
 
       <section className="mx-auto max-w-7xl px-6 py-16">

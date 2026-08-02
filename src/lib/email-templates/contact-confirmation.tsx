@@ -61,7 +61,7 @@ const Email = ({ name, message, service }: Props) => (
         ) : null}
         <Hr style={hr} />
         <Text style={footer}>
-          SecureMe247 — Managed IT Services, Helpdesk &amp; Cybersecurity · Reston, Virginia ·{' '}
+          SecureMe247 · Managed IT Services, Helpdesk &amp; Cybersecurity · Reston, Virginia ·{' '}
           <Link href="https://secureme247.com" style={link}>
             secureme247.com
           </Link>
