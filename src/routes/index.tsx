@@ -20,6 +20,7 @@ import { CtaSection } from "@/components/site/CtaSection";
 import { services as serviceData } from "@/data/services";
 import { blogPosts } from "@/data/blogPosts";
 import { cleanReadTime } from "@/lib/blogContent";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,7 +37,9 @@ export const Route = createFileRoute("/")({
         content:
           "24/7 SOC monitoring, MDR, penetration testing, vCISO and compliance for growing businesses.",
       },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Index,
 });
