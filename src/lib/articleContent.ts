@@ -35,9 +35,11 @@ export function parseArticle(markdown: string) {
 
   const faqs: FaqItem[] = [];
   let current: FaqItem | null = null;
+  const junkRe = /^(was this article helpful|share this|related (posts|articles|services)|about the author|tags)\b/i;
   for (const raw of faqLines) {
     const line = raw.trim();
     if (!line) continue;
+    if (junkRe.test(line.replace(/^#{2,4}\s+|[*_]/g, ""))) break;
     if (/^#{2,4}\s+/.test(line)) {
       const text = headingText(line);
       if (text.endsWith("?")) {
@@ -70,5 +72,9 @@ export function parseArticle(markdown: string) {
     toc.push({ id: "faq", text: "Frequently Asked Questions", level: 2 });
   }
 
-  return { body: bodyLines.join("\n").trim(), faqs, toc };
+  return {
+    body: bodyLines.join("\n").trim(),
+    faqs: faqs.filter((f) => f.answer.trim().length > 0),
+    toc,
+  };
 }
