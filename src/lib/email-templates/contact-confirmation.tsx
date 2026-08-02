@@ -21,16 +21,15 @@ interface Props {
 const Email = ({ name, message, service }: Props) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>We got your request — a SecureMe247 IT specialist will be in touch shortly</Preview>
+    <Preview>Your request has been received. A SecureMe247 IT specialist will reply within one business day.</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={brand}>SECUREME247 · MANAGED IT SERVICES</Text>
-        <Heading style={h1}>Thanks{name ? `, ${name}` : ''} — your request is in</Heading>
+        <Text style={brand}>SecureMe247 · Managed IT Services</Text>
+        <Heading style={h1}>Thanks{name ? `, ${name}` : ''}, we received your request</Heading>
         <Text style={p}>
-          A SecureMe247 IT specialist will review your request and reach out within one business
-          day to schedule a free, no-obligation IT assessment of your environment. If your systems
-          are down or you have an urgent issue, call us any time — our helpdesk and monitoring run
-          24/7/365.
+          A SecureMe247 IT specialist will review what you sent and reply within one business day
+          to arrange an assessment of your environment. If your systems are down or you have an
+          urgent issue, our helpdesk is available at any time.
         </Text>
         <Text style={p}>
           <Link href="tel:+17037550014" style={link}>
@@ -38,13 +37,13 @@ const Email = ({ name, message, service }: Props) => (
           </Link>
         </Text>
         <Hr style={hr} />
-        <Text style={labelStyle}>What we&rsquo;ll cover on the first call</Text>
+        <Text style={labelStyle}>What we cover on the first call</Text>
         <Text style={p}>
-          · Your current IT setup — users, devices, servers, and cloud (Microsoft 365 / Google
+          · Your current IT setup: users, devices, servers, and cloud (Microsoft 365 / Google
           Workspace)
           <br />· Helpdesk response times and where support is falling short today
           <br />· Backup, disaster recovery, and cybersecurity gaps
-          <br />· A flat-rate managed IT plan sized to your team
+          <br />· A managed IT plan sized to your team
         </Text>
         {service ? (
           <>
@@ -74,7 +73,7 @@ const Email = ({ name, message, service }: Props) => (
 
 export const template = {
   component: Email,
-  subject: 'We got your request — SecureMe247 Managed IT Services',
+  subject: 'Your request to SecureMe247 has been received',
   displayName: 'IT inquiry confirmation (to visitor)',
   previewData: {
     name: 'Jane',
