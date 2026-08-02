@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { Phone, Mail, MapPin, Clock, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import { services } from "@/data/services";
+import { submitContact } from "@/lib/contact.functions";
 import { SITE_URL, organizationSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
@@ -54,6 +56,7 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
+  const send = useServerFn(submitContact);
 
   return (
     <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr]">
@@ -88,14 +91,34 @@ function ContactPage() {
       </div>
 
       <form
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
+          const form = e.currentTarget;
+          const fd = new FormData(form);
+          const payload = {
+            name: String(fd.get("name") ?? "").trim(),
+            email: String(fd.get("email") ?? "").trim(),
+            company: String(fd.get("company") ?? "").trim(),
+            phone: String(fd.get("phone") ?? "").trim(),
+            service: String(fd.get("service") ?? "").trim(),
+            message: String(fd.get("message") ?? "").trim(),
+            source: typeof window !== "undefined" ? window.location.pathname : "/contact",
+          };
+          if (!payload.name || !payload.email) {
+            toast.error("Please add your name and work email.");
+            return;
+          }
           setSubmitting(true);
-          setTimeout(() => {
-            setSubmitting(false);
-            (e.target as HTMLFormElement).reset();
+          try {
+            await send({ data: payload });
+            form.reset();
             toast.success("Request received — an analyst will reach out within one business day.");
-          }, 600);
+          } catch (err) {
+            console.error(err);
+            toast.error("Something went wrong. Please call (703) 755-0014 or email info@secureme247.com.");
+          } finally {
+            setSubmitting(false);
+          }
         }}
         className="rounded-2xl border border-border bg-surface p-8"
       >
