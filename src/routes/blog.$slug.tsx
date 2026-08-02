@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { CtaSection } from "@/components/site/CtaSection";
 import { Prose } from "@/components/site/Prose";
@@ -7,12 +7,17 @@ import { blogContent, cleanReadTime } from "@/lib/blogContent";
 import { parseArticle } from "@/lib/articleContent";
 import { ArticleToc } from "@/components/site/ArticleToc";
 import { FaqAccordion } from "@/components/site/FaqAccordion";
+import { legacyRedirect } from "@/lib/redirects";
 import { SITE_URL, absoluteUrl, seoTitle } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
     const post = blogPosts.find((p) => p.slug === params.slug);
-    if (!post) throw notFound();
+    if (!post) {
+      const target = legacyRedirect(`/blog/${params.slug}`);
+      if (target) throw redirect({ href: target, statusCode: 301 });
+      throw notFound();
+    }
     const article = parseArticle(blogContent[params.slug] ?? "");
     return { post, ...article };
   },
