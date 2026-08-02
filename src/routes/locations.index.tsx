@@ -3,6 +3,7 @@ import { MapPin } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { states, cities } from "@/data/locations";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/locations/")({
   head: () => ({
@@ -17,7 +18,9 @@ export const Route = createFileRoute("/locations/")({
         property: "og:description",
         content: "Find managed security and IT support in your city.",
       },
+      { property: "og:url", content: `${SITE_URL}/locations` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/locations` }],
   }),
   component: LocationsIndex,
 });
