@@ -68,13 +68,14 @@ export function parseArticle(markdown: string) {
     if (!text) continue;
     toc.push({ id: slugifyHeading(text), text, level: (match[1]?.length ?? 2) as 2 | 3 });
   }
-  if (faqs.length > 0) {
+  const validFaqs = faqs.filter((f) => f.answer.trim().length > 0);
+  if (validFaqs.length > 0) {
     toc.push({ id: "faq", text: "Frequently Asked Questions", level: 2 });
   }
 
   return {
     body: bodyLines.join("\n").trim(),
-    faqs: faqs.filter((f) => f.answer.trim().length > 0),
+    faqs: validFaqs,
     toc,
   };
 }
