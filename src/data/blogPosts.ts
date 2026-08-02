@@ -1,6 +1,33 @@
 export type BlogPost = typeof blogPosts[number];
 export const blogPosts = [
   {
+    "slug": "microsoft-365-copilot-security-2026",
+    "title": "Microsoft 365 Copilot Security: What to Configure Before Rollout",
+    "description": "Copilot inherits every permission mistake in your tenant. A practical pre-rollout checklist covering oversharing audits, sensitivity labels, restricted search, identity hygiene, and a realistic 30 day deployment plan.",
+    "date": "August 2, 2026",
+    "category": "Cloud Security",
+    "readTime": "9 min read",
+    "image": "/blog/microsoft-365-copilot-security-2026.jpg"
+  },
+  {
+    "slug": "co-managed-it-services-2026",
+    "title": "Co-Managed IT: When to Augment Your Internal IT Team",
+    "description": "How co-managed IT works, the signs your internal team is ready for it, a practical split of responsibilities, real cost comparisons against hiring, and the questions to ask before signing with a provider.",
+    "date": "August 2, 2026",
+    "category": "Managed IT",
+    "readTime": "8 min read",
+    "image": "/blog/co-managed-it-services-2026.jpg"
+  },
+  {
+    "slug": "it-support-sla-response-times-2026",
+    "title": "IT Support SLAs: Setting and Measuring Helpdesk Response Times",
+    "description": "How to read, negotiate, and measure IT support SLAs: response versus resolution, severity levels tied to business impact, coverage windows, the metrics worth reporting monthly, and contract terms people forget.",
+    "date": "August 2, 2026",
+    "category": "Managed IT",
+    "readTime": "8 min read",
+    "image": "/blog/it-support-sla-response-times-2026.jpg"
+  },
+  {
     "slug": "ai-powered-cyber-threats-2026",
     "title": "AI-Powered Cyber Threats 2026: How Attackers Are Using Artificial Intelligence",
     "description": "How attackers are weaponizing artificial intelligence for sophisticated phishing, deepfake social engineering, and automated vulnerability exploitation, plus what your business can do to defend against AI-powered attacks.",
