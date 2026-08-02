@@ -3,6 +3,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { SectionBlocks } from "@/components/site/SectionBlocks";
 import { complianceFrameworks } from "@/data/complianceFrameworks";
+import { SITE_URL, seoTitle } from "@/lib/seo";
 
 export const Route = createFileRoute("/compliance/$slug")({
   loader: ({ params }) => {
@@ -15,14 +16,17 @@ export const Route = createFileRoute("/compliance/$slug")({
       return { meta: [{ title: "Framework not found" }, { name: "robots", content: "noindex" }] };
     }
     const { framework } = loaderData;
-    const title = `${framework.title} Compliance | SecureMe247`;
+    const title = seoTitle(`${framework.title} Compliance`);
+    const url = `${SITE_URL}/compliance/${framework.slug}`;
     return {
       meta: [
         { title },
         { name: "description", content: framework.description },
         { property: "og:title", content: title },
         { property: "og:description", content: framework.description },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   component: FrameworkDetail,
