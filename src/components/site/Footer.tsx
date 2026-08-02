@@ -35,7 +35,7 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="size-4 text-primary" />
-              11890 Sunrise Valley Dr, Reston, VA
+              11890 Sunrise Valley Dr Ste 540, Reston, VA 20191
             </li>
           </ul>
         </div>
