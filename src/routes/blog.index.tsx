@@ -4,11 +4,12 @@ import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { blogPosts } from "@/data/blogPosts";
 import { cleanReadTime } from "@/lib/blogContent";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "Cybersecurity Insights & Threat Intelligence | SecureMe247" },
+      { title: "Cybersecurity Insights | SecureMe247" },
       {
         name: "description",
         content:
@@ -19,7 +20,9 @@ export const Route = createFileRoute("/blog/")({
         property: "og:description",
         content: "Threat intelligence, compliance guides, and security best practices.",
       },
+      { property: "og:url", content: `${SITE_URL}/blog` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/blog` }],
   }),
   component: BlogIndex,
 });
