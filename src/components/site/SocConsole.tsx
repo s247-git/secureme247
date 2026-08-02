@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { ShieldCheck, Sparkles, AlertTriangle, Globe } from "lucide-react";
 
 const stats = [
@@ -42,12 +43,12 @@ export function SocConsole() {
             </span>
           </div>
 
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="mt-8 inline-flex rounded-lg border border-primary/50 px-5 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
           >
             Schedule a live demo
-          </a>
+          </Link>
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-glow-sm">
