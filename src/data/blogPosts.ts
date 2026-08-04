@@ -1,6 +1,33 @@
 export type BlogPost = typeof blogPosts[number];
 export const blogPosts = [
   {
+    "slug": "phishing-resistant-mfa-passkeys-2026",
+    "title": "Phishing-Resistant MFA: A Practical Passkey Rollout Plan",
+    "description": "Why app based MFA is being bypassed, what actually counts as phishing-resistant, and a 30 day passkey rollout plan covering admins first, account recovery hardening, and the weak fallback methods most projects forget to remove.",
+    "date": "August 4, 2026",
+    "category": "Managed Security",
+    "readTime": "10 min read",
+    "image": "/blog/phishing-resistant-mfa-passkeys-2026.jpg"
+  },
+  {
+    "slug": "employee-onboarding-offboarding-it-checklist-2026",
+    "title": "IT Onboarding and Offboarding: The Checklist That Closes Access Gaps",
+    "description": "A step by step employee lifecycle checklist for IT: pre-arrival provisioning from role templates, quarterly access reviews, the four hour offboarding sequence, contractor expiry dates, and the shared credentials nobody rotates.",
+    "date": "August 4, 2026",
+    "category": "Managed IT",
+    "readTime": "9 min read",
+    "image": "/blog/employee-onboarding-offboarding-it-checklist-2026.jpg"
+  },
+  {
+    "slug": "dmarc-email-authentication-guide-2026",
+    "title": "DMARC, SPF and DKIM: Getting to Enforcement Without Breaking Mail",
+    "description": "How SPF, DKIM and DMARC alignment actually work, a staged path from p=none to p=reject in six to ten weeks, how to read aggregate reports, and the configuration mistakes that leave most domains unprotected.",
+    "date": "August 4, 2026",
+    "category": "Cloud Security",
+    "readTime": "10 min read",
+    "image": "/blog/dmarc-email-authentication-guide-2026.jpg"
+  },
+  {
     "slug": "microsoft-365-copilot-security-2026",
     "title": "Microsoft 365 Copilot Security: What to Configure Before Rollout",
     "description": "Copilot inherits every permission mistake in your tenant. A practical pre-rollout checklist covering oversharing audits, sensitivity labels, restricted search, identity hygiene, and a realistic 30 day deployment plan.",
