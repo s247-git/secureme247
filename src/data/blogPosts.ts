@@ -1,6 +1,33 @@
 export type BlogPost = typeof blogPosts[number];
 export const blogPosts = [
   {
+    "slug": "cmmc-compliance-reston-va-2026",
+    "title": "CMMC Compliance for Reston Government Contractors",
+    "description": "What CMMC Level 2 requires of Reston and Dulles Corridor defense contractors, the four artifacts every assessment starts with, the gaps we see most often locally, realistic costs, and a twelve month path to a defensible SPRS score.",
+    "date": "August 6, 2026",
+    "category": "Compliance",
+    "readTime": "10 min read",
+    "image": "/blog/cmmc-compliance-reston-va-2026.jpg"
+  },
+  {
+    "slug": "cloud-migration-reston-va-2026",
+    "title": "Cloud Migration for Reston Businesses: Microsoft 365 and Azure",
+    "description": "A practical cloud migration plan for Reston, VA businesses: workload inventory, the four migration paths, why identity moves before data, the cost traps that blow budgets, and a cutover sequence that does not ruin a weekend.",
+    "date": "August 6, 2026",
+    "category": "Cloud Security",
+    "readTime": "9 min read",
+    "image": "/blog/cloud-migration-reston-va-2026.jpg"
+  },
+  {
+    "slug": "ransomware-recovery-reston-va-2026",
+    "title": "Ransomware Recovery in Reston, VA: The First Hour and What Follows",
+    "description": "What Reston businesses should do in the first sixty minutes of a ransomware attack, whether paying is ever the right call, what full recovery actually involves, realistic timelines, and the four controls that prevent it.",
+    "date": "August 6, 2026",
+    "category": "Incident Response",
+    "readTime": "9 min read",
+    "image": "/blog/ransomware-recovery-reston-va-2026.jpg"
+  },
+  {
     "slug": "phishing-resistant-mfa-passkeys-2026",
     "title": "Phishing-Resistant MFA: A Practical Passkey Rollout Plan",
     "description": "Why app based MFA is being bypassed, what actually counts as phishing-resistant, and a 30 day passkey rollout plan covering admins first, account recovery hardening, and the weak fallback methods most projects forget to remove.",
